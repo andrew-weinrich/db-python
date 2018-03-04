@@ -22,8 +22,8 @@ post_data() {
     
     curl -s -X GET "http://localhost:8080/records/${SORT_TYPE}" > "test_output-${TEST_ID}-${SORT_TYPE}.txt"
     
-    kill -s SIGINT $SERVICE_PID
-    sleep 2
+    kill $SERVICE_PID
+    wait $SERVICE_PID 2>/dev/null
 }
 
 
