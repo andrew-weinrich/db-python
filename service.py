@@ -32,7 +32,7 @@ class GetRecords:
                 record.favoriteColor,
                 record.gender,
                 record.birthDate.strftime("%m/%d/%Y")
-            )
+            ) + "\n"
         
         return output
 
