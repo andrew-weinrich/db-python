@@ -14,7 +14,7 @@ from records import Record, sortMethods
 
 def main():
     if len(sys.argv) != 4:
-        raise "Invalid number of parameters: should be read_records.py fileName delimiter sortType"
+        raise Exception("Invalid number of parameters: should be read_records.py fileName delimiter sortType")
     
     records = {}
     
@@ -28,8 +28,8 @@ def main():
             components = line.split(delimiter)
             
             # assume that input data does not have to be validated
-            firstName = components[0]
-            lastName = components[1]
+            lastName = components[0]
+            firstName = components[1]
             gender = components[2]
             favoriteColor = components[3]
             birthDate = datetime.strptime(components[4], "%Y-%m-%d")
