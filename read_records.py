@@ -4,7 +4,7 @@ from datetime import datetime
 import sys
 from functools import cmp_to_key
 
-from records import Record, sortMethods
+from records import Record, sortMethods, parseRecord
 
 
 
@@ -25,17 +25,7 @@ def main():
     with open(fileName, "r") as inputFile:
         for line in inputFile:
             line = line.strip()
-            components = line.split(delimiter)
-            
-            # assume that input data does not have to be validated
-            lastName = components[0]
-            firstName = components[1]
-            gender = components[2]
-            favoriteColor = components[3]
-            birthDate = datetime.strptime(components[4], "%Y-%m-%d")
-            
-            record = Record(firstName, lastName, gender, favoriteColor, birthDate)
-            
+            record = parseRecord(line, delimiter)
             records[record.key] = record
     
     # assume that sortType does not have to be validated
@@ -49,9 +39,6 @@ def main():
             record.gender,
             record.birthDate.strftime("%m/%d/%Y")
         )
-    
-    
-
 
 if __name__ == "__main__":
     main()

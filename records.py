@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
 
-import datetime
+from datetime import datetime
+
+
+
+
 
 
 
@@ -38,15 +42,27 @@ class Record:
 
 # comparison methods for different kinds of sorts
 sortMethods = {
-    'birthDate' : lambda a,b : cmp(a.birthDate, b.birthDate),
+    'birthdate' : lambda a,b : cmp(a.birthDate, b.birthDate),
     'gender' : lambda a,b : 
         cmp(a.gender + "-" + a.lastName + "-" + a.firstName,
             b.gender + "-" + b.lastName + "-" + b.firstName),
-    'lastName' : lambda a,b :
+    'name' : lambda a,b :
         cmp(b.lastName,
             a.lastName)
 }
 
+def parseRecord(line, delimiter):
+    components = line.split(delimiter)
+    
+    # assume that input data does not have to be validated
+    lastName = components[0]
+    firstName = components[1]
+    gender = components[2]
+    favoriteColor = components[3]
+    birthDate = datetime.strptime(components[4], "%Y-%m-%d")
+    
+    return Record(firstName, lastName, gender, favoriteColor, birthDate)
+    
 
 
 
