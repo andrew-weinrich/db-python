@@ -12,21 +12,21 @@ post_data() {
     DELIMITER="$1"
     TEST_ID="$2"
     
-    python service.py &
+    python service.py > /dev/null 2>&1 &
     SERVICE_PID=$!
-    sleep 10
+    sleep 3
     
     while read line; do
-        curl -X POST -d "$line" "http://localhost:8080/records?delimiter=$DELIMITER"
+        curl -s -X POST -d "$line" "http://localhost:8080/records?delimiter=$DELIMITER"
     done < "input${TEST_ID}.txt"
     
-    curl -X GET "http://localhost:8080/records/${SORT_TYPE}" > test_output-${TEST_ID}.txt
+    curl -s -X GET "http://localhost:8080/records/${SORT_TYPE}" > "test_output-${TEST_ID}-${SORT_TYPE}.txt"
     
-    kill $SERVICE_PID
+    kill -s SIGINT $SERVICE_PID
+    sleep 2
 }
 
 
-%20%7C%20
 
 
 for SORT_TYPE in "${SORT_TYPES[@]}"; do
@@ -35,15 +35,15 @@ for SORT_TYPE in "${SORT_TYPES[@]}"; do
     post_data '%20' 3
     
     echo "Test 1 $SORT_TYPE:"
-    diff test_output-1.txt "output-${SORT_TYPE}.txt" 
+    diff "test_output-1-${SORT_TYPE}.txt" "output-${SORT_TYPE}.txt" 
 
     echo "Test 2 $SORT_TYPE:"
-    diff test_output-2.txt "output-${SORT_TYPE}.txt" 
+    diff "test_output-2-${SORT_TYPE}.txt" "output-${SORT_TYPE}.txt" 
 
     echo "Test 3 $SORT_TYPE:"
-    diff test_output-3.txt "output-${SORT_TYPE}.txt" 
+    diff "test_output-3-${SORT_TYPE}.txt" "output-${SORT_TYPE}.txt" 
     
-    rm test_output-1.txt
-    rm test_output-2.txt
-    rm test_output-3.txt
+    rm test_output-1-${SORT_TYPE}.txt
+    rm test_output-2-${SORT_TYPE}.txt
+    rm test_output-3-${SORT_TYPE}.txt
 done
