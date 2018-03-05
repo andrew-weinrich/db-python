@@ -1,0 +1,5 @@
+{"lastName":"Argon","firstName":"Lisa","favoriteColor":"Blue","gender":"F","birthDate":"01/01/2008"}
+{"lastName":"McKillip","firstName":"Jane","favoriteColor":"Green","gender":"F","birthDate":"06/02/2008"}
+{"lastName":"Zena","firstName":"Zeta","favoriteColor":"Orange","gender":"F","birthDate":"08/22/2008"}
+{"lastName":"Smiley","firstName":"Richard","favoriteColor":"Pink","gender":"M","birthDate":"12/05/2008"}
+{"lastName":"Smith","firstName":"Bob","favoriteColor":"Brown","gender":"M","birthDate":"01/07/2008"}

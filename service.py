@@ -25,8 +25,10 @@ class GetRecords:
         sortedRecords = sorted(records.values(), key = cmp_to_key(sortMethods[sortMethod]))
         
         output = ""
+        #output = output + "{0} {1} {2} {3} {4}".format(
+        #output = output + '{{"{0}"}}'.format(
         for record in sortedRecords:
-            output = output + "{0} {1} {2} {3} {4}".format(
+            output = output + '{{"lastName":"{0}","firstName":"{1}","favoriteColor":"{2}","gender":"{3}","birthDate":"{4}"}}'.format(
                 record.lastName,
                 record.firstName,
                 record.favoriteColor,
