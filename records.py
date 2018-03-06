@@ -4,11 +4,6 @@
 from datetime import datetime
 
 
-
-
-
-
-
 class Record:
     """Simple person record"""
     firstName = ""
@@ -29,7 +24,8 @@ class Record:
     # private method to create a key for the record
     def _createKey(self):
         return self.lastName + "-" + self.firstName
-
+    
+    # default stringification method
     def __str__(self):
         return "lastName:'{0}'; firstName:'{1}'; favoriteColor:'{2}'; gender:'{3}'; birthDate:'{4}'".format(
             self.lastName,
@@ -51,6 +47,7 @@ sortMethods = {
             a.lastName)
 }
 
+# parses a record from a line of text with a custom field delimiter
 def parseRecord(line, delimiter):
     components = line.split(delimiter)
     

@@ -7,11 +7,6 @@ from functools import cmp_to_key
 from records import Record, sortMethods, parseRecord
 
 
-
-
-
-
-
 def main():
     if len(sys.argv) != 4:
         raise Exception("Invalid number of parameters: should be read_records.py fileName delimiter sortType")

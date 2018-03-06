@@ -1,5 +1,5 @@
-{"lastName":"Argon","firstName":"Lisa","favoriteColor":"Blue","gender":"F","birthDate":"01/01/2008"}
-{"lastName":"Smith","firstName":"Bob","favoriteColor":"Brown","gender":"M","birthDate":"01/07/2008"}
-{"lastName":"McKillip","firstName":"Jane","favoriteColor":"Green","gender":"F","birthDate":"06/02/2008"}
-{"lastName":"Zena","firstName":"Zeta","favoriteColor":"Orange","gender":"F","birthDate":"08/22/2008"}
-{"lastName":"Smiley","firstName":"Richard","favoriteColor":"Pink","gender":"M","birthDate":"12/05/2008"}
+{"birthDate":"01/01/2008","favoriteColor":"Blue","firstName":"Lisa","gender":"F","lastName":"Argon"}
+{"birthDate":"01/07/2008","favoriteColor":"Brown","firstName":"Bob","gender":"M","lastName":"Smith"}
+{"birthDate":"06/02/2008","favoriteColor":"Green","firstName":"Jane","gender":"F","lastName":"McKillip"}
+{"birthDate":"08/22/2008","favoriteColor":"Orange","firstName":"Zeta","gender":"F","lastName":"Zena"}
+{"birthDate":"12/05/2008","favoriteColor":"Pink","firstName":"Richard","gender":"M","lastName":"Smiley"}

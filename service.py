@@ -9,7 +9,8 @@ from functools import cmp_to_key
 urls = (
     # takes a parameter ?delimiter= that indicates how the input is delimited
     '/records', 'PostRecords',
-  
+    
+    # create an endpoint for each sorting method
     '/records/(' + '|'.join(sortMethods.keys()) + ')',  'GetRecords',
 )
 
@@ -19,14 +20,12 @@ records = {}
 
 class GetRecords:
     def GET(self, sortMethod):
-        web.header('Content-Type', 'text/plain')
+        web.header('Content-Type', 'application/json')
         
         # sortType is validated by regex in the records
         sortedRecords = sorted(records.values(), key = cmp_to_key(sortMethods[sortMethod]))
         
         output = ""
-        #output = output + "{0} {1} {2} {3} {4}".format(
-        #output = output + '{{"{0}"}}'.format(
         for record in sortedRecords:
             output = output + '{{"lastName":"{0}","firstName":"{1}","favoriteColor":"{2}","gender":"{3}","birthDate":"{4}"}}'.format(
                 record.lastName,
